@@ -117,7 +117,6 @@ const handleTabletChange = event => {
       }else if(e.target === menuBurger) {
         moveMenuBurger();
       };
-      backlight(e.target);
     } else if(widthWind <= 576) {
       if(event.matches) {
         if(e.target === menuBurger) {
@@ -126,17 +125,15 @@ const handleTabletChange = event => {
         }else if (e.target === sideBarBurger) {
           moveSideBarBurger();
         }
-        backlight(e.target);
       }else if (e.target === sideBarBurger) {
         moveSideBarBurger();
       }else if (e.target === menuBurger) {
         moveMenuBurger();
       };
-      backlight(e.target);
     }else {
       moveMenuBurger();
-      backlight(e.target);
     };
+    backlight(e.target);
   });
 };
 
