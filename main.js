@@ -13,9 +13,15 @@ let wrapperSidebarBurger = document.querySelector('.wrapper__sidebar__burger');
 let tel = document.querySelector('.tel');
 let menuLink = document.querySelectorAll('.menu__link');
 let backlightItem = document.querySelectorAll('.backlight_item');
-
-
 const mediaQuery = window.matchMedia('(max-width: 538px)')
+
+const checkNone = () => {
+  if(sideBarBurger.classList.contains('open_menu')) {
+    mouseOverSidebar.classList.add('none');
+  }else {
+    mouseOverSidebar.classList.remove('none');
+  };
+};
 
 const backlight = elemMenu => {
   let timeoutBacklight = elem => {
@@ -69,20 +75,15 @@ const closeBurgerSidebar = () => {
   sideBarBurger.classList.remove('open_menu');
   sideBar.classList.remove('open_menu');
   wrapperSidebarBurger.classList.remove('open_menu');
+  checkNone();
 }
-
 
 const moveSideBarBurger = () => {
   sideBarBurger.classList.toggle('open_menu');
   sideBar.classList.toggle('open_menu');
   wrapperSidebarBurger.classList.toggle('open_menu');
-  if(mouseOverSidebar.classList.contains('none')){
-    setTimeout(() => {
-      mouseOverSidebar.classList.toggle('none');
-    }, 800);
-  }else {
-    mouseOverSidebar.classList.toggle('none')
-  };
+  mouseOverSidebar.classList.toggle('none');
+ checkNone();
 };
 
 const moveMenuBurger = () => {
@@ -90,12 +91,7 @@ const moveMenuBurger = () => {
   menuNav.classList.toggle('open_menu');
   wrapperBurger.classList.toggle('open_menu');
   mouseOver.classList.toggle('none');
-}
-
-const checkNone = () => {
-  if(mouseOverSidebar.classList.contains('none')) {
-    mouseOverSidebar.classList.remove('none');
-  };
+  checkNone();
 };
 
 document.addEventListener("scroll", function() {
@@ -110,35 +106,34 @@ document.addEventListener("scroll", function() {
 goTopBtn.addEventListener('click', () => {
   backToTop();
   closeBurgerSidebar();
-  checkNone();
 });
 
 const handleTabletChange = event => {
   let widthWind = document.querySelector('body').offsetWidth;
   document.addEventListener('click', e => {
-    if(widthWind <= 768) {
-      if(e.target === sideBarBurger && widthWind > 576) {
+    if(widthWind <= 768 && widthWind > 576) {
+      if(e.target === sideBarBurger) {
         moveSideBarBurger();
-        closeBurgerSidebar();
-        checkNone();
       }else if(e.target === menuBurger) {
         moveMenuBurger();
       };
-      if(widthWind <= 576) {
-        if(event.matches) {
-          if(e.target === menuBurger) {
-            moveMenuBurger();
-            sloganText.classList.toggle('open__menu__slogan__text');
-          }
-          backlight(e.target);
+      backlight(e.target);
+    } else if(widthWind <= 576) {
+      if(event.matches) {
+        if(e.target === menuBurger) {
+          moveMenuBurger();
+          sloganText.classList.toggle('open__menu__slogan__text');
         }else if (e.target === sideBarBurger) {
           moveSideBarBurger();
-        }else if (e.target === sideBarBurger) {
-          moveMenuBurger();
-        };
+        }
+        backlight(e.target);
+      }else if (e.target === sideBarBurger) {
+        moveSideBarBurger();
+      }else if (e.target === menuBurger) {
+        moveMenuBurger();
       };
       backlight(e.target);
-    } else {
+    }else {
       moveMenuBurger();
       backlight(e.target);
     };
