@@ -8,7 +8,7 @@
     display: none;
   }
   .back_to_top {
-    right: 8em;
+    right: 2em;
   }
 }
 
@@ -293,7 +293,6 @@
   }
 }
 
-
 /* 320-576px  */
 
 @media screen and (max-width: 576px) {
@@ -317,6 +316,7 @@
   .tel {
     font-size: 8px;
   }
+
   .slogan__content {
     padding: 45px 0;
     height: 109px;
@@ -399,7 +399,7 @@
   } 
   .sidebar.open_menu {
     left: 0;
-    height: 93.5%;
+    height: 94.5%;
   }
   .sidebar__photo, .photo {
     width: auto;

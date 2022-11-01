@@ -14,6 +14,9 @@ let tel = document.querySelector('.tel');
 let menuLink = document.querySelectorAll('.menu__link');
 let backlightItem = document.querySelectorAll('.backlight_item');
 const mediaQuery = window.matchMedia('(max-width: 538px)')
+let widthWind = document.querySelector('body').offsetWidth;
+const mediaQueryTelegramm = window.matchMedia('(max-width: 768px)')
+
 
 const checkNone = () => {
   if(sideBarBurger.classList.contains('open_menu')) {
@@ -109,7 +112,6 @@ goTopBtn.addEventListener('click', () => {
 });
 
 const handleTabletChange = event => {
-  let widthWind = document.querySelector('body').offsetWidth;
   document.addEventListener('click', e => {
     if(widthWind <= 768 && widthWind > 576) {
       if(e.target === sideBarBurger) {
@@ -141,10 +143,12 @@ mediaQuery.addListener(() => {
   if(mediaQuery) {
     closeBurgerMenu();
     closeBurgerSidebar();
+    setDottedInProjects()
     checkNone();
   }else {
     closeBurgerMenu();
     closeBurgerSidebar();
+    setDottedInProjects()
     checkNone();
   };
 });
@@ -169,4 +173,54 @@ function animeLogoPlus(a, b, ms) {
   }, ms);
 };
 
-animeLogoPlus(stepLeft, stepRight, 25);
+// animeLogoPlus(stepLeft, stepRight, 25);
+
+mediaQuery.addListener(() => {
+  if(mediaQueryTelegramm.matches) {
+    document.querySelector('.icon').style.width = '15px'
+    document.querySelector('.icon').style.height = '15px'
+  }else {
+    document.querySelector('.icon').style.width = '30px'
+    document.querySelector('.icon').style.height = '30px'
+  };
+});
+
+if(mediaQueryTelegramm.matches) {
+  document.querySelector('.icon').style.width = '15px'
+  document.querySelector('.icon').style.height = '15px'
+}else {
+  document.querySelector('.icon').style.width = '30px'
+  document.querySelector('.icon').style.height = '30px'
+};
+
+function setDottedInProjects() {
+  const itemsProjects = Array.from(document.querySelectorAll('.my__project__item'));
+  const itemsProjectsLinkWrapper = Array.from(document.querySelectorAll('.my__project__link__wrapper'));
+  const itemsProjectsInstr = Array.from(document.querySelectorAll('.my__project__instr'));
+  const itemsProjectsAfter = Array.from(document.querySelectorAll('.my__project__after'));
+  let widthItemsProjectsInstr = [];
+  itemsProjects.forEach((itemPr, idxPr) => {
+    itemsProjectsLinkWrapper.forEach((itemLink, idxLink) => {
+      if(idxPr === idxLink) {
+        widthItemsProjectsInstr.push(itemPr.clientWidth - itemLink.clientWidth)
+      }
+    })
+  })
+  let widthAfter = [];
+  widthItemsProjectsInstr.forEach((itemWidthInstr, idxWidthInstr) => {
+    itemsProjectsInstr.forEach((itemInstr, idxInstr) => {
+      if(idxWidthInstr === idxInstr) {
+        widthAfter.push(itemWidthInstr - itemInstr.clientWidth)
+      }
+    })
+  })
+  itemsProjectsAfter.forEach((itemAfter, idxAfter) => {
+    widthAfter.forEach((itemWidthAfter, idxWidthAfter) => {
+      if(idxAfter === idxWidthAfter) {
+        itemAfter.style.width = `${itemWidthAfter - 1}px`
+      }
+    })
+  })
+}
+
+setDottedInProjects()
