@@ -144,52 +144,38 @@ mediaQuery.addListener(() => {
     closeBurgerSidebar();
     setDottedInProjects()
     checkNone();
+    setTimeout(() => {setDottedInProjects()}, 20)
   }else {
     closeBurgerMenu();
     closeBurgerSidebar();
     setDottedInProjects()
     checkNone();
+    setTimeout(() => {setDottedInProjects()}, 20)
   };
 });
 
 mediaQuery.addListener(handleTabletChange(mediaQuery))
 
-var stepLeft = 0;
-var stepRight = 150;
-
-function animeLogoPlus(a, b, ms) {
-  setInterval(() => {
-    if(stepLeft >= a && stepLeft <= b) {
-      stepLeft += 1;
-      icon.style.left = stepLeft + 'px';
-    }else if(stepRight <= b && stepRight >= a) {
-      stepRight -= 1;
-      icon.style.left = stepRight + 'px';
-    }else {
-    stepLeft = a;
-    stepRight = b;
-    };
-  }, ms);
-};
-
-// animeLogoPlus(stepLeft, stepRight, 25);
-
 mediaQuery.addListener(() => {
   if(mediaQueryTelegramm.matches) {
     document.querySelector('.icon').style.width = '15px'
     document.querySelector('.icon').style.height = '15px'
+    setTimeout(() => {setDottedInProjects()}, 20)
   }else {
     document.querySelector('.icon').style.width = '30px'
     document.querySelector('.icon').style.height = '30px'
+    setTimeout(() => {setDottedInProjects()}, 20)
   };
 });
 
 if(mediaQueryTelegramm.matches) {
   document.querySelector('.icon').style.width = '15px'
   document.querySelector('.icon').style.height = '15px'
+  setTimeout(() => {setDottedInProjects()}, 20)
 }else {
   document.querySelector('.icon').style.width = '30px'
   document.querySelector('.icon').style.height = '30px'
+  setTimeout(() => {setDottedInProjects()}, 20)
 };
 
 function setDottedInProjects() {
