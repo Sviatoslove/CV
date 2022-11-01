@@ -308,6 +308,9 @@ a {
   line-height: 24px;
   color: #595959;
 }
+.my__project__link:hover {
+  text-decoration: underline;
+}
 .my__project__bracket {
   font-style: normal;
   font-weight: bold;
