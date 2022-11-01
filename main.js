@@ -17,7 +17,6 @@ const mediaQuery = window.matchMedia('(max-width: 538px)')
 let widthWind = document.querySelector('body').offsetWidth;
 const mediaQueryTelegramm = window.matchMedia('(max-width: 768px)')
 
-
 const checkNone = () => {
   if(sideBarBurger.classList.contains('open_menu')) {
     mouseOverSidebar.classList.add('none');
@@ -222,5 +221,4 @@ function setDottedInProjects() {
     })
   })
 }
-
-setDottedInProjects()
+setTimeout(() => {setDottedInProjects()}, 20)
