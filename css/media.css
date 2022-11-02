@@ -28,6 +28,11 @@
   .back_to_top {
     right: 40px;
   }
+  .main__content {
+    padding: 100px 7.5vw;
+    max-width: inherit;
+    width: 100%;
+  }
 }
 
 
@@ -135,9 +140,6 @@
   .slogan__text {
     width: 72vw;
   }
-  .sidebar__photo {
-    width: 37vw;
-  }
   .main__content {
     padding: 6vw 4vw;
   }
@@ -228,7 +230,7 @@
   .burger__sidebar.open_menu {
     left: 22em;
     top: 8.4em;
-    z-index: 1;
+    z-index: 2;
     border-radius: 10px;
   }
   .sidebar {
@@ -240,7 +242,8 @@
   }
   .sidebar.open_menu {
     left: 10px;
-    height: 90.5%;
+    height: 92.5%;
+    z-index: 1;
   } 
   .burger__sidebar span, .burger__sidebar:after, .burger__sidebar:before{
     height: 3px;
@@ -365,7 +368,7 @@
     width: 20px;
     height: 20px;
     left: 1.6em;
-    top: 4.4em;
+    top: 4.98em;
   }
   .mouse__over__sidebar {
     margin-left: 25px;
@@ -383,8 +386,8 @@
     text-align: -webkit-right;
   }
   .burger__sidebar.open_menu {
-    left: 0;
-    top: 4.4em;
+    left: 22px;
+    top: 5.16em;
   }
   .burger__sidebar.open_menu:before {
     top: 10px;
@@ -398,8 +401,9 @@
     top: 72px;
   } 
   .sidebar.open_menu {
-    left: 0;
-    height: 94.5%;
+    left: 21px;
+    height: 93.5%;
+    top: 85px;
   }
   .sidebar__photo, .photo {
     width: auto;
@@ -416,6 +420,9 @@
     line-height: 18px;
     margin: 0;
   }
+  .my__project__section {
+    margin: 0 0 20px 0;
+  }
   .my__project__text {
     font-size: 12px;
   }
@@ -425,10 +432,13 @@
   .my__project__bracket {
     font-size: 12px;
   }
+  .about__me {
+    margin: 0 0 15px 0;
+  }
   .about__me__profession {
     font-size: 18px;
     line-height: 22px;
-    margin: 0;
+    margin: 0 0 10px 0;
   }
   .about__me__name {
     font-size: 25px;

@@ -12,9 +12,10 @@ let sloganText = document.querySelector('.slogan__text');
 let wrapperSidebarBurger = document.querySelector('.wrapper__sidebar__burger');
 let tel = document.querySelector('.tel');
 let menuLink = document.querySelectorAll('.menu__link');
-let backlightItem = document.querySelectorAll('.backlight_item');
-const mediaQuery = window.matchMedia('(max-width: 538px)')
+let backlightItem = Array.from(document.querySelectorAll('.backlight_item'));
 let widthWind = document.querySelector('body').offsetWidth;
+
+const mediaQuery = window.matchMedia('(max-width: 538px)')
 const mediaQueryTelegramm = window.matchMedia('(max-width: 768px)')
 
 const checkNone = () => {
@@ -25,16 +26,22 @@ const checkNone = () => {
   };
 };
 
-const backlight = elemMenu => {
+const backlight = (elemMenu) => {
   let timeoutBacklight = elem => {
     setTimeout(() => {
       elem.classList.add('backlight')
-    }, 1150);
+    }, 1550);
     setTimeout(() => {
       elem.classList.remove('backlight')
-    }, 1350);
+    }, 1750);
   };
+  const closeSideBurger = () => {
+    if(sideBarBurger.classList.contains('open_menu')) {
+      moveSideBarBurger();
+    }
+  }
   if(elemMenu === menuLink[0]) {
+    closeSideBurger()
     timeoutBacklight(backlightItem[3]);
   }else if(elemMenu === menuLink[1]) {
     if(sideBarBurger.classList.contains('open_menu')) {
@@ -44,10 +51,13 @@ const backlight = elemMenu => {
       timeoutBacklight(backlightItem[0]);
     };
   }else if(elemMenu === menuLink[2]) {
+    closeSideBurger()
     timeoutBacklight(backlightItem[2]);
   }else if(elemMenu === menuLink[3]) {
+    closeSideBurger()
     timeoutBacklight(backlightItem[4]);
   }else if(elemMenu === menuLink[4]) {
+    closeSideBurger()
     timeoutBacklight(backlightItem[5]);
   }else if(elemMenu === menuLink[5]) {
     if(sideBarBurger.classList.contains('open_menu')) {
@@ -171,11 +181,9 @@ mediaQuery.addListener(() => {
 if(mediaQueryTelegramm.matches) {
   document.querySelector('.icon').style.width = '15px'
   document.querySelector('.icon').style.height = '15px'
-  setTimeout(() => {setDottedInProjects()}, 20)
 }else {
   document.querySelector('.icon').style.width = '30px'
   document.querySelector('.icon').style.height = '30px'
-  setTimeout(() => {setDottedInProjects()}, 20)
 };
 
 function setDottedInProjects() {
@@ -202,9 +210,9 @@ function setDottedInProjects() {
   itemsProjectsAfter.forEach((itemAfter, idxAfter) => {
     widthAfter.forEach((itemWidthAfter, idxWidthAfter) => {
       if(idxAfter === idxWidthAfter) {
-        itemAfter.style.width = `${itemWidthAfter - 1}px`
+        itemAfter.style.width = `${itemWidthAfter - 2}px`
       }
     })
   })
 }
-setTimeout(() => {setDottedInProjects()}, 20)
+setTimeout(() => {setDottedInProjects()}, 100)
