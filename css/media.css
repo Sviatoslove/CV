@@ -386,7 +386,7 @@
     text-align: -webkit-right;
   }
   .burger__sidebar.open_menu {
-    left: 22px;
+    left: 0;
     top: 5.16em;
   }
   .burger__sidebar.open_menu:before {
@@ -401,8 +401,8 @@
     top: 72px;
   } 
   .sidebar.open_menu {
-    left: 21px;
-    height: 93.5%;
+    left: 0;
+    height: 94.5%;
     top: 85px;
   }
   .sidebar__photo, .photo {
