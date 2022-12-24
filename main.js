@@ -215,4 +215,4 @@ function setDottedInProjects() {
     })
   })
 }
-setTimeout(() => {setDottedInProjects()}, 100)
+setTimeout(() => {setDottedInProjects()}, 200)
