@@ -215,4 +215,5 @@ function setDottedInProjects() {
     })
   })
 }
+
 setTimeout(() => {setDottedInProjects()}, 200)
