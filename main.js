@@ -20,6 +20,11 @@ const mediaQueryTelegramm = window.matchMedia('(max-width: 768px)');
 
 const projects = [
   {
+    name: 'Film_gallery',
+    href: 'https://github.com/Sviatoslove/Film_gallery_React.git',
+    technologies: 'React.js',
+  },
+  {
     name: 'ToDoList_vite_materialUI',
     href: 'https://github.com/Sviatoslove/ToDoList_vite_materialUI.git',
     technologies: 'React.js',
